@@ -1,0 +1,23 @@
+<div class="clearfix">
+	<div class="btn-group w-100 mb-3">
+		<button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fa fa-sort-amount-desc">&nbsp;</i>	Order By
+		</button>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" (click)="sortBgIcon(null)">No filter</a>
+			<div class="dropdown-divider"></div>
+			<a class="dropdown-item" (click)="sortBgIcon('popular')">Most popular</a>
+		</div>
+	</div>
+</div>
+<div id="icon-panel" class="clearfix {{loading?'load-blur':''}}">
+	<div *ngFor="let bg of bgs">
+		<img class="icon-wrap px-2 py-2" [src] = "bg[1]" (click)="setBackground(bg[0])" >
+	</div>
+</div>
+<div class="clearfix pt-2">
+	<input type="text" class="form-control form-control-sm float-left pageno" readonly [(ngModel)]="pageLabel">
+	<a class="float-left pagination" (click)="pagePrev()"><i class="fa fa-chevron-left"></i></a>
+	<a class="float-left pagination page-next" (click)="pageNext()" ><i class="fa fa-chevron-right"></i></a>
+	<div *ngIf="loading" class="loader">Loading...</div>
+</div>

@@ -1,0 +1,9 @@
+.banner-content{padding: 50px 20px;}
+.login-wrap{
+	width: 550px;
+	max-width: 100%;
+	border-radius: 6px;
+	border:1px solid #ddd;
+	margin:50px auto;
+	padding-top:50px;
+}

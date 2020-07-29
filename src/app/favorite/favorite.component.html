@@ -1,0 +1,55 @@
+<div class="banner bg-main">
+	<div class="container">
+		<div class="banner-content">
+			<h1>Saved Icons</h1>
+			<p class="mt-3">Your library of graphics made using your account.</p>
+			<a routerLink="/editor" class="btn btn-warning text-white">Create Icons Now</a>
+		</div>
+	</div>
+</div>
+<main>
+	<div class="container">
+		<div *ngFor="let fav of favlist; let i = index" class="px-4 py-4">
+			<div class="row fav-block pb-4 align-items-center">
+				<div class="content col-md">
+					<div *ngFor="let base64 of fav.base64" class="float-left">
+						<img class="icon-wrap px-2 py-2" [src] = "base64" >
+					</div>
+					<div class="clearfix"></div>
+					<div class="row align-items-end">
+						<div class="col-md-7">
+							<div class="icon-info">
+								<input type="text" name="icon-name" [(ngModel)] ="fav.name" class="form-control icon-set-name" >
+								<div class="date-info row align-items-center py-2">
+									<div class="col-sm-6 small">
+										<div class="created">Created: {{fav.created}}</div>
+										<div class="updated">Updated: {{fav.updated}}</div>
+									</div>
+									<div class="col-sm-6 text-right">
+										<button class="btn btn-success px-4 mr-2" (click)="editIconSet(fav.id, i)" ><i class="fa fa-edit">&nbsp;</i>Edit</button>
+										<button class="btn btn-primary px-4" (click)="updateIconSet(fav.id)" ><i class="fa fa-save">&nbsp;</i>SAVE</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="text-center down-icon">
+								<a class="btn" (click)="downsvg('jpg',fav.id)"><i class="fa fa-image"></i><br><span>JPG</span></a>
+								<a class="btn" (click)="downsvg('ico', fav.id)"><i class="fa fa-image"></i><br><span>ICON</span></a>
+								<a class="btn" (click)="downsvg('svg', fav.id)"><i class="fa fa-image"></i><br><span>SVG</span></a>
+								<a class="btn" (click)="downsvg('pdf', fav.id)"><i class="fa fa-image"></i><br><span>PDF</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-auto icon-edit-group">
+					<a class="icons-share" (click)="openDialog(fav.id)"><i class="fa fa-share-alt"></i></a>
+					<a class="icons-trash" (click)="trashSet(fav.id)"><i class="fa fa-trash"></i></a>
+					<a class="icons-dup" (click)="duplicate(fav.id)"><i class="fa fa-files-o"></i></a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="tmp" class="d-none"></div>
+</main>

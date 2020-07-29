@@ -1,0 +1,18 @@
+<header>
+	<div class="container">
+		<div class="row align-items-end">
+			<div class="logo col-sm-auto">
+				<a routerLink="/">
+					<img src="assets/images/logo.png" alt="IconTool">
+				</a>
+			</div>
+			<div class="col-sm text-right">
+				<a *ngIf="currentUser==null" routerLink="/login" class="mr-5"><i class="fa fa-sign-in">&nbsp;</i>Login</a>
+				<a *ngIf="currentUser!=null" class="mr-5" routerLink="/favorite" ><i class="fa fa-bookmark">&nbsp;</i>My Icons</a>
+				<!-- <a *ngIf="currentUser!=null" class="mr-5" routerLink="/plans" ><i class="fa fa-gift">&nbsp;</i>Upgrade</a> -->
+				<a *ngIf="currentUser!=null" class="mr-5 logout-btn" (click)="logout()" ><i class="fa fa-sign-out">&nbsp;</i>Log out</a>
+				<a *ngIf="currentUser==null" routerLink="/signup" class="btn btn-warning">Get Started</a>
+			</div>
+		</div>
+	</div>
+</header>

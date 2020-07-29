@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.btn-warning {
+	background: #f8a017;
+	color: #fff!important;
+}
+.btn-warning:hover{
+	background: #de8904;
+}
+.bg-main{
+	background: #3d8af7;
+	color:#fff!important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html.cdk-global-scrollblock {
+    position: relative!important;
+    padding-bottom: 100px;
+}

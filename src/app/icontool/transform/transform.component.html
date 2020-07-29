@@ -1,0 +1,53 @@
+<div class="alert alert-light">
+	<div class="row">
+		<div class="col-sm-auto">
+			<span class="close-icon" (click)="removeIcon()" ><i class="fa fa-close"></i></span>
+			<div id="selectedIcon"></div>
+			<img [src]="curImageSrc">
+		</div>
+		<div class="col-sm">
+			<div class="row align-items-center">
+				<div class="col-7">
+					<mat-slider min="10" max="200" step="1" [(ngModel)]="shapesize" (slideend)="onSizeChange($event)" (pointerup)="onSizeChange($event)"></mat-slider>
+				</div>
+				<div class="col-2">
+					<label>Size</label>
+				</div>
+				<div class="col-3 per-input">
+					<input type="text" class="form-control form-control-sm" name="shapesize" [(ngModel)]="shapesize" (change)="onSizeChange($event)">
+				</div>
+			</div>
+			<div class="row align-items-center">
+				<div class="col-7">
+					<mat-slider min="0" max="360" step="1" [(ngModel)]="rotation" (slideend)="onRotationChange($event)" (pointerup)="onRotationChange($event)"></mat-slider>
+				</div>
+				<div class="col-2">
+					<label>Rotate</label>
+				</div>
+				<div class="col-3 degree-input">
+					<input type="text" class="form-control form-control-sm" name="rotation" [(ngModel)]="rotation" (change)="onRotationChange($event)">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row align-items-center my-2">
+		<div class="col-6 text-center">
+			<button class="move-icon move-up" (click)="moveup()"><i class="fa fa-arrow-up"></i></button>
+			<button class="move-icon move-down" (click)="movedown()"><i class="fa fa-arrow-down"></i></button>
+			<button class="move-icon move-left" (click)="moveleft()"><i class="fa fa-arrow-left"></i></button>
+			<button class="move-icon move-right" (click)="moveright()"><i class="fa fa-arrow-right"></i></button>
+		</div>
+		<div class="col-3">
+			<label>Position</label>
+		</div>
+	</div>
+	<div class="row align-items-center my-2">
+		<div class="col-6 text-center">
+			<button class="flip-icon flip-x" (click)="flipx()"><img src="assets/images/flipx.svg"></button>
+			<button class="flip-icon flip-y" (click)="flipy()"><img src="assets/images/flipy.svg"></button>
+		</div>
+		<div class="col-3">
+			<label>Flip</label>
+		</div>
+	</div>
+</div>

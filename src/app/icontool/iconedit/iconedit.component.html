@@ -1,0 +1,151 @@
+<h5>Background</h5>
+<div class="bg-pannel px-4">
+	<div class="row">
+		<div class="col">
+			<div class="row mx-0 color-bar"
+				[ngStyle]="{'background': 'linear-gradient(90deg ,' + bgspecs.s_color + ' ' + bgspecs.s_pos + '%, ' + bgspecs.e_color + ' ' + bgspecs.e_pos + '%)'}"
+				>
+				<div class="col s-color btn-color" (cpSliderDragEnd)="onBgChange()" (cpInputChange)= "onBgChange()"[(colorPicker)]="bgspecs.s_color" [cpPosition]="'bottom'"></div>
+				<div class="col e-color btn-color" (cpSliderDragEnd)="onBgChange()" (cpInputChange)= "onBgChange()" [(colorPicker)]="bgspecs.e_color" [cpPosition]="'bottom'"></div>
+			</div>
+			<div class="row range mx-0 mt-2">
+				<ng5-slider
+					[(value)]="bgspecs.s_pos"
+					[(highValue)]="bgspecs.e_pos"
+					[options]="{
+						floor: 0,
+						ceil: 100,
+						hideLimitLabels: true,
+						hidePointerLabels: true,
+						animate: false
+					}"
+					(slideend)="onBgChange()" (pointerup)="onBgChange()"
+				></ng5-slider>
+			</div>
+		</div>
+		<div class="col-auto">
+			<app-anglepicker [angle]="bgspecs.bgdegree" (setAngle)="setAngle($event)"></app-anglepicker>
+		</div>
+	</div>
+	<div class="row mt-1">
+		<div class="col">
+			<div class="row justify-content-between">
+				<div class="col-5 per-input">
+					<input type="text" class="form-control form-control-sm" name="pos1" [(ngModel)]="bgspecs.s_pos" (change)="onBgChange()">
+				</div>
+				<div class="col-5 per-input">
+					<input type="text" class="form-control form-control-sm" name="pos2" [(ngModel)]="bgspecs.e_pos" (change)="onBgChange()">
+				</div>
+			</div>
+		</div>
+		<div class="col-auto pl-0">
+			<div class="degree-input">
+				<input type="text" class="form-control form-control-sm" name="angle1" [(ngModel)]="bgspecs.bgdegree" (change)="onBgChange()">
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<h5>Shape</h5>
+<div class="shape-pannel px-4">
+	<div class="row">
+		<div class="col">
+			<div class="row mx-0 color-bar"
+				[ngStyle]="{'background': 'linear-gradient(90deg ,' + shapespecs.s_color + ' ' + shapespecs.s_pos + '%, ' + shapespecs.e_color + ' ' + shapespecs.e_pos + '%)'}"
+				>
+				<div class="col s-color btn-color" (cpSliderDragEnd)="onShapeChange()" (cpInputChange)= "onShapeChange()" [(colorPicker)]="shapespecs.s_color" [cpPosition]="'bottom'"></div>
+				<div class="col e-color btn-color" (cpSliderDragEnd)="onShapeChange()" (cpInputChange)= "onShapeChange()" [(colorPicker)]="shapespecs.e_color" [cpPosition]="'bottom'"></div>
+			</div>
+			<div class="row range mx-0 mt-2">
+				<ng5-slider
+					[(value)]="shapespecs.s_pos"
+					[(highValue)]="shapespecs.e_pos"
+					[options]="{
+						floor: 0,
+						ceil: 100,
+						hideLimitLabels: true,
+						hidePointerLabels: true,
+						animate: false
+					}"
+					(slideend)="onShapeChange()" (pointerup)="onShapeChange()"
+				></ng5-slider>
+			</div>
+		</div>
+		<div class="col-auto">
+			<app-anglepicker [angle]="shapespecs.bgdegree" (setAngle)="setShapeAngle($event)"></app-anglepicker>
+		</div>
+	</div>
+	<div class="row mt-1">
+		<div class="col">
+			<div class="row justify-content-between">
+				<div class="col-5 per-input">
+					<input type="text" class="form-control form-control-sm" name="pos1" [(ngModel)]="shapespecs.s_pos" (change)="onShapeChange()">
+				</div>
+				<div class="col-5 per-input">
+					<input type="text" class="form-control form-control-sm" name="pos2" [(ngModel)]="shapespecs.e_pos" (change)="onShapeChange()">
+				</div>
+			</div>
+		</div>
+		<div class="col-auto pl-0">
+			<div class="degree-input">
+				<input type="text" class="form-control form-control-sm" name="angle1" [(ngModel)]="shapespecs.bgdegree" (change)="onShapeChange()">
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="shadow-panel">
+	<mat-checkbox [(ngModel)]="enableShadow" (change)="applyShadow()">Drop Shadow</mat-checkbox>
+	<div class="alert alert-light">
+		<div class="row align-items-center">
+			<div class="col-3">
+				<div class="shadow-color" (cpSliderDragEnd)="onChangeShadow()" [(colorPicker)]="shadowColor" [cpPosition]="'bottom'" [ngStyle]="{'background': shadowColor}"></div>
+			</div>
+			<div class="col-3">
+				<label>Color</label>
+			</div>
+			<div class="col-3">
+				<app-anglepicker [angle]="angle" [disabled]="!enableShadow" (setAngle)="setShadowAngle($event)"></app-anglepicker>
+			</div>
+			<div class="col-3">
+				<div class="degree-input w-100">
+					<input type="text" class="form-control form-control-sm" [disabled]="!enableShadow" [(ngModel)]="angle" (change)="onChangeShadow()">
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-6">
+				<mat-slider min="0" max="100" step="1" [disabled]="!enableShadow" [(ngModel)]="opacity" (slideend)="onChangeShadow()" (pointerup)="onChangeShadow()"></mat-slider>
+			</div>
+			<div class="col-3">
+				<label>Opacity</label>
+			</div>
+			<div class="col-3 per-input">
+				<input type="text" class="form-control form-control-sm" [disabled]="!enableShadow" [(ngModel)]="opacity" (change)="onChangeShadow()">
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-6">
+				<mat-slider min="1" max="20" step="1" [(ngModel)]="distance" [disabled]="!enableShadow" (slideend)="onChangeShadow()" (pointerup)="onChangeShadow()"></mat-slider>
+			</div>
+			<div class="col-3">
+				<label>Distance</label>
+			</div>
+			<div class="col-3 pixel-input">
+				<input type="text" class="form-control form-control-sm" [disabled]="!enableShadow" [(ngModel)]="distance" (change)="onChangeShadow()">
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-6">
+				<mat-slider min="1" max="20" step="1" [(ngModel)]="size" [disabled]="!enableShadow" (slideend)="onChangeShadow()" (pointerup)="onChangeShadow()"></mat-slider>
+			</div>
+			<div class="col-3">
+				<label>Size</label>
+			</div>
+			<div class="col-3 pixel-input">
+				<input type="text" class="form-control form-control-sm" [disabled]="!enableShadow" [(ngModel)]="size" (change)="onChangeShadow()">
+			</div>
+		</div>
+	</div>
+</div>
+<hr>

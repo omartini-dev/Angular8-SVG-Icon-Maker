@@ -1,0 +1,109 @@
+mat-slider {
+  width: 100%;
+}
+
+::ng-deep .mat-accent .mat-slider-thumb,::ng-deep .mat-accent .mat-slider-thumb-label,::ng-deep .mat-accent .mat-slider-track-fill {
+	background-color: #4791ff!important;
+}
+::ng-deep .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,::ng-deep  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background: #4791ff;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #4791ff;
+}
+.degree-input{
+	width: 50px;
+	position: relative;
+}
+.degree-input:after{
+	content: "\00b0";
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	font-size: 20px;
+}
+.per-input:after{
+	content: "%";
+	position: absolute;
+	top: 3px;
+	right: 1.1em;
+}
+.pixel-input:after{
+	content: "px";
+	position: absolute;
+	top: 3px;
+	right: 1.1em;
+}
+.btn-color{min-height: 20px;}
+.color-bar{
+	border: 1px solid #aec7ff;
+	border-radius: 10px;
+}
+.close-icon{
+	display: block;
+    border: 1px solid #aaa;
+    position: absolute;
+    right: 10px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+}
+.shadow-color{width: 30px;height: 30px;border-radius: 50%;}
+h5{font-size:1.1rem;}
+.sm-font label{font-size: 0.8rem;}
+.range /deep/ .ng5-slider {
+  margin: 0;
+}
+
+.range /deep/ .ng5-slider-pointer {
+  width: 12px;
+  height: 12px;
+  top: -5px;
+  background-color: #4791ff;
+  outline: none;
+}
+
+.range /deep/ .ng5-slider-pointer::after {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1),opacity .4s cubic-bezier(.25,.8,.25,1);
+}
+
+.range /deep/ .ng5-slider-pointer.ng5-slider-active::after {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #4791ff44;
+}
+
+.range /deep/ .ng5-slider-bar-wrapper {
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.range /deep/ .ng5-slider-selection {
+  background-color: #4791ff;
+}
+.range /deep/ .ng5-slider-bar {
+  height: 2px;
+}
+.range .ng5-slider[disabled] /deep/ .ng5-slider-pointer{
+  background-color: #C4C4C4;
+}
+
+.range  .ng5-slider[disabled] /deep/ .ng5-slider-selection{
+  background-color: #C4C4C4;
+}
+
+.range .ng5-slider[disabled] /deep/ .ng5-slider-bar{
+  background-color: #C4C4C4;
+}

@@ -1,0 +1,52 @@
+<div class="">
+	<div class="row align-items-center bg-white">
+		<div class="col-3 px-0">
+			<mat-slider min="50" max="256" step="1" [(ngModel)]="imageSize" (slideend)="onChangeSize()" (pointerup)="onChangeSize()"></mat-slider>
+		</div>
+		<div class="col-1 px-1">
+			<label class="mb-0">Size</label>
+		</div>
+		<div class="col-2 pixel-input px-1">
+			<input type="text" class="form-control form-control-sm" [(ngModel)]="imageSize" (change)="onChangeSize()">
+		</div>
+		<div class="col-auto px-1">
+			<app-anglepicker [angle]="angle" (setAngle)="setAngle($event)"></app-anglepicker>
+		</div>
+		<div class="col-2 degree-input px-0">
+			<input type="text" class="form-control form-control-sm" [(ngModel)]="angle" (change)="onChangeAngle()">
+		</div>
+		<div class="col-2 pl-1 pr-0">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-light px-2" (click)="flipSet('x')"><img src="assets/images/flipx.svg" width="20" height="18"></button>
+				<button type="button" class="btn btn-light px-2" (click)="flipSet('y')"><img src="assets/images/flipy.svg" height="20"></button>
+			</div>
+		</div>
+	</div>
+	<div class="row" id="drawing-wrap" style="overflow: hidden;">
+			<div *ngIf="imgsrc[0]" class="text-center icon-wrap col" (click)="selectIcon(0)"><img [src]="imgsrc[0]"></div>
+			<div *ngIf="imgsrc[1]" class="text-center icon-wrap col" (click)="selectIcon(1)"><img [src]="imgsrc[1]"></div>
+			<div *ngIf="imgsrc[2]" class="text-center icon-wrap col" (click)="selectIcon(2)"><img [src]="imgsrc[2]"></div>
+			<div *ngIf="imgsrc[3]" class="text-center icon-wrap col" (click)="selectIcon(3)"><img [src]="imgsrc[3]"></div>
+			<div *ngIf="imgsrc[4]" class="text-center icon-wrap col" (click)="selectIcon(4)"><img [src]="imgsrc[4]"></div>
+			<div *ngIf="imgsrc[5]" class="text-center icon-wrap col" (click)="selectIcon(5)"><img [src]="imgsrc[5]"></div>
+			<div *ngIf="imgsrc[6]" class="text-center icon-wrap col" (click)="selectIcon(6)"><img [src]="imgsrc[6]"></div>
+			<div *ngIf="imgsrc[7]" class="text-center icon-wrap col" (click)="selectIcon(7)"><img [src]="imgsrc[7]"></div>
+			<div *ngIf="imgsrc[8]" class="text-center icon-wrap col" (click)="selectIcon(8)"><img [src]="imgsrc[8]"></div>
+			<div *ngIf="imgsrc[9]" class="text-center icon-wrap col" (click)="selectIcon(9)"><img [src]="imgsrc[9]"></div>
+			<div class="real-draw-wrap">
+				<div class="p-abs" id="drawing1"></div>
+				<div class="p-abs" id="drawing2"></div>
+				<div class="p-abs" id="drawing3"></div>
+				<div class="p-abs" id="drawing4"></div>
+				<div class="p-abs" id="drawing5"></div>
+				<div class="p-abs" id="drawing6"></div>
+				<div class="p-abs" id="drawing7"></div>
+				<div class="p-abs" id="drawing8"></div>
+				<div class="p-abs" id="drawing9"></div>
+				<div class="p-abs" id="drawing10"></div>
+			</div>
+	</div>
+	<div class="d-none">
+		<div id="tmp4set" class="d-none"></div>
+	</div>
+</div>

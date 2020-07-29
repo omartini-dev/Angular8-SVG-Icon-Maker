@@ -1,0 +1,19 @@
+.banner-content{padding: 50px 20px;}
+.login-wrap{
+	width: 550px;
+	max-width: 100%;
+	border-radius: 6px;
+	border:1px solid #ddd;
+	margin:50px auto;
+	padding-top:50px;
+}
+::ng-deep .fav-block{
+	border-bottom: 2px solid #888;
+}
+.icon-set-name{font-size: 24px;}
+.down-icon i{font-size: 50px; color: #f8a017;}
+.icon-edit-group{font-size: 36px;color: #888;text-align: center;}
+.icon-edit-group a{cursor: pointer; margin-right: 16px;}
+@media (min-width: 768px) {
+	.icon-edit-group a{display: block;}
+}

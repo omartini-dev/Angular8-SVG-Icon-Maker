@@ -1,0 +1,33 @@
+<div class="clearfix">
+	<div class="input-group input-group-sm mb-3 searchbox">
+		<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="searchvalue" (change)="searchIcon()">
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="button" (click)="searchIcon()" ><i class="fa fa-search"></i></button>
+			<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split no-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fa fa-sort-amount-desc">&nbsp;</i>
+			</button>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" (click)="sortIcon(null)">No filter</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" (click)="sortIcon('popular')">Most popular</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="icon-panel" class="clearfix {{loading?'load-blur':''}}">
+	<div *ngFor="let icon of icons">
+		<div class="icon-wrap px-2 py-2" [innerHTML]="icon[0]" (click)="setIcon($event, icon[1], icon[2])" ></div>
+	</div>
+</div>
+<div class="clearfix pt-2 p-relative">
+	<input type="text" class="form-control form-control-sm float-left pageno" readonly [(ngModel)]="pageLabel">
+	<a class="float-left pagination" (click)="pagePrev()"><i class="fa fa-chevron-left"></i></a>
+	<a class="float-left pagination page-next" (click)="pageNext()" ><i class="fa fa-chevron-right"></i></a>
+	<div *ngIf="loading" class="loader">Loading...</div>
+</div>
+<h5 class="mt-3">Related Icons</h5>
+<div id="icon-related-panel" class="clearfix">
+	<div *ngFor="let icon of relatedicons">
+		<div class="icon-wrap px-2 py-2" [innerHTML]="icon[0]" (click)="setIcon($event, icon[1], null)" ></div>
+	</div>
+</div>

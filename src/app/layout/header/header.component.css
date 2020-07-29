@@ -1,0 +1,12 @@
+header{
+	padding:20px 0 10px;
+}
+.logo img{width: 200px;max-width: 100%;}
+.logo a {
+	color: #000;
+	font-size: 32px;
+	vertical-align: middle; 
+	font-family: Helvetica;
+}
+.logo a:hover{text-decoration: none;color: #000;}
+.logout-btn{cursor: pointer;}

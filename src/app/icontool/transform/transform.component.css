@@ -1,0 +1,61 @@
+mat-slider {
+  width: 100%;
+}
+.move-icon{
+	width: 30px;
+	margin-right: 8px;
+	background: none;
+	border: 3px solid #aaa;
+	border-radius: 4px;
+	color: #888;
+}
+.flip-icon{
+	height: 30px;
+	width: 50px;
+	margin-right: 8px;
+	background: none;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	color: #888;
+}
+.move-icon:focus, .flip-icon:focus{
+	outline: none;
+}
+.flip-icon img{height: 20px;width: 100%;}
+.flip-y img{height: 26px;}
+.degree-input:after{
+	content: "\00b0";
+	position: absolute;
+	top: 2px;
+	right: 1.1em;
+	font-size: 20px;
+}
+.per-input:after{
+	content: "%";
+	position: absolute;
+	top: 3px;
+	right: 1.1em;
+}
+.pixel-input:after{
+	content: "px";
+	position: absolute;
+	top: 3px;
+	right: 1.1em;
+}
+.close-icon{
+	display: block;
+    border: 1px solid #aaa;
+    position: absolute;
+    right: 10px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    cursor: pointer;
+    background: #fff;
+}
+#selectedIcon{
+	position: absolute;
+	left: -999px;
+	top: -999px;
+}

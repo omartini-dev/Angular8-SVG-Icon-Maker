@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg menu-bar py-0 mb-3">
+	<div class="container">
+		<div class="navbar-collapse" id="menu">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="menu-item{{ active=='icon'?' active':''}}" (click) = "activeMenu('icon')"><span>Icons</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="menu-item{{ active=='bground'?' active':''}}" (click) = "activeMenu('bground')"><span>Backgrounds</span></a>
+				</li>
+			</ul>
+
+			<div class="social-wrap my-0 text-right p-1">
+				<a class="btn-social" (click)="openDialog('save')">
+					<i class="fa fa-save">&nbsp;</i><span class="d-md-inline">Save</span>
+				</a>
+				<a class="btn-social" (click)="openDialog('share')">
+					<i class="fa fa-share-alt">&nbsp;</i><span class="d-md-inline">Share</span>
+				</a>
+				<a class="btn-social" (click)="openDialog('download')">
+					<i class="fa fa-cloud-download">&nbsp;</i><span class="d-md-inline">Download</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<app-icon class="{{active=='icon'?'':'d-none'}}"></app-icon>
+			<app-background class="{{active=='bground'?'':'d-none'}}"></app-background>
+		</div>
+		<div class="col-md-5 view-pannel">
+			<div class="box">
+				<app-whiteboard></app-whiteboard>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<app-iconedit></app-iconedit>
+		</div>
+	</div>
+</div>
+<div class="d-none col-10">
+	<div id="tmp"></div>
+</div>

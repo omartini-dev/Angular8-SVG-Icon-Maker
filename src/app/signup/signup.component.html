@@ -1,0 +1,55 @@
+<div class="banner bg-main">
+	<div class="container">
+		<div class="banner-content">
+			<h1>Sign Up</h1>
+			<p class="mt-3">Register for free and start making graphics today.</p>
+		</div>
+	</div>
+</div>
+<main>
+	<div class="container">
+		<div class="login-wrap">
+			<form class="login-form">
+				<h3 class="text-center mb-2">Create your account</h3>
+				<p class="text-center mb-5">Start designing in seconds for free.</p>
+				<div *ngIf="failed" class="alert alert-danger" role="alert">
+					<button type="button" class="close" (click)="closeAlert()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span [innerHtml] = "error_content"></span>
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text" id="user"><i class="fa fa-user"></i></span>
+					</div>
+					<input type="text" class="form-control {{invalid[0] && inputVal.name==''?'is-invalid':''}}" placeholder="Your name" aria-label="Your name" aria-describedby="user" name="name" [(ngModel)]="inputVal.name">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text" id="email"><i class="fa fa-envelope"></i></span>
+					</div>
+					<input type="text" class="form-control {{invalid[1] && inputVal.email==''?'is-invalid':''}}" placeholder="Email" aria-label="Email" aria-describedby="email" name="email" [(ngModel)]="inputVal.email">
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+					<span class="input-group-text" id="password"><i class="fa fa-lock"></i></span>
+					</div>
+					<input type="password" class="form-control {{invalid[2] && inputVal.password==''?'is-invalid':''}}" placeholder="Password(min 4 characters)" aria-label="Password" aria-describedby="password" name="password" [(ngModel)]="inputVal.password">
+				</div>
+				<div class="row align-items-end py-3">
+					<div class="col-12 text-center {{invalid[3] && inputVal.terms==false?'is-invalid':''}}">
+						<mat-checkbox [(ngModel)]="inputVal.terms" name="terms" required>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</mat-checkbox>
+					</div>
+				</div>
+				<div class="clearfix text-center p-relative">
+					<div *ngIf="loading" class="loader">Loading...</div>
+					<button class="btn btn-success btn-start py-3 w-100" (click)="onSubmit()">GET STARTED FREE</button>
+				</div>
+			</form>
+			<div class="form-bottom text-center">
+				Already have an account?
+				<a routerLink="/login" href="#" class="ml-5">Log in</a>
+			</div>
+		</div>
+	</div>
+</main>

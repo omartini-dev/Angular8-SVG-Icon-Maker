@@ -1,0 +1,19 @@
+mat-slider {
+  width: 100%;
+}
+.icon-wrap{margin-top: 10px;cursor: pointer;}
+.real-draw-wrap, .p-abs{
+	position: absolute;
+	left: -9999px;
+	top: -999px;
+}
+.degree-input:after{
+	content: "\00b0";
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	font-size: 20px;
+}
+::ng-deep .mat-slider-horizontal {
+	min-width: auto!important;
+}

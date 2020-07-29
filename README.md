@@ -2,7 +2,7 @@
 
 <img width="900" src="src/assets/images/cover3.png" border="0" />
 
-<img width="900" src="src/public/images/cover4.png" border="0" />
+<img width="900" src="src/assets/images/cover4.png" border="0" />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
